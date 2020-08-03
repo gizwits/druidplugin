@@ -82,7 +82,12 @@ System.register(["lodash", "moment", "app/core/utils/datemath"], function (expor
                     var groupBy = lodash_1.default.map(target.groupBy, function (e) { return _this.templateSrv.replace(e); });
                     var limitSpec = null;
                     var metricNames = this.getMetricNames(aggregators, postAggregators);
-                    var intervals = this.getQueryIntervals(from, to);
+                    
+                    var intervals = getQueryIntervals(from, to);
+                    if (end && start && end !== '' && start !== '') {
+                        intervals = [start + '/' +end];
+                    }
+
                     var promise = null;
                     var selectMetrics = target.selectMetrics;
                     var selectDimensions = target.selectDimensions;

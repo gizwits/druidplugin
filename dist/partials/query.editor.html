@@ -404,6 +404,29 @@
       <div class="gf-form-label gf-form-label--grow"></div>
     </div>
   </div>
+
+  <div class="gf-form-inline">
+    <div class="gf-form">
+      <label class="gf-form-label query-keyword width-9">
+        Time
+      </label>
+    </div>
+
+    <div class="gf-form">
+      <input type="text" class="input-small gf-form-input width-10" ng-blur="ctrl.targetBlur()" ng-model="ctrl.target.time.start" spellcheck='false' placeholder="start">
+      <input type="text" class="input-small gf-form-input width-10" ng-blur="ctrl.targetBlur()" ng-model="ctrl.target.time.end" spellcheck='false' placeholder="end">
+    </div>
+    <div class="gf-form" ng-show="ctrl.addFilterMode">
+      <label class="gf-form-label">
+        <a ng-click="ctrl.addFilter()">add tag</a>
+        <a ng-click="ctrl.clearCurrentFilter()"><i class="fa fa-remove"></i></a>
+      </label>
+    </div>
+    <div class="gf-form gf-form--grow">
+      <div class="gf-form-label gf-form-label--grow"></div>
+    </div>
+  </div>
+
   <div class="gf-form-inline">
   <div class="gf-form">
     <label class="gf-form-label query-keyword width-9">

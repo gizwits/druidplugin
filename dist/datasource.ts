@@ -538,7 +538,7 @@ export default class DruidDatasource {
     const result = {};
     for (let i = 0; i < eventList.length; i++) {
       const event = eventList[i].event;
-      const timestamp = event.timestamp;
+      const timestamp = event.__time + '';
       if (_.isEmpty(timestamp)) {
         continue;
       }

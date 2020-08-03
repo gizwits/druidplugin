@@ -137,13 +137,14 @@ System.register(["lodash", "moment", "app/core/utils/datemath"], function (expor
                 };
                 DruidDatasource.prototype.selectQuery = function (datasource, intervals, granularity, dimensions, metric, filters, selectThreshold) {
                     var query = {
-                        "queryType": "select",
+                        "queryType": "scan",
                         "dataSource": datasource,
                         "granularity": granularity,
                         "pagingSpec": { "pagingIdentifiers": {}, "threshold": selectThreshold },
                         "dimensions": dimensions,
                         "metrics": metric,
-                        "intervals": intervals
+                        "intervals": intervals,
+                        "limit": 10000
                     };
                     if (filters && filters.length > 0) {
                         query.filter = this.buildFilterTree(filters);
@@ -158,7 +159,8 @@ System.register(["lodash", "moment", "app/core/utils/datemath"], function (expor
                         granularity: granularity,
                         aggregations: aggregators,
                         postAggregations: postAggregators,
-                        intervals: intervals
+                        intervals: intervals,
+                        "limit": 10000
                     };
                     if (filters && filters.length > 0) {
                         query.filter = this.buildFilterTree(filters);
@@ -176,7 +178,8 @@ System.register(["lodash", "moment", "app/core/utils/datemath"], function (expor
                         metric: metric,
                         aggregations: aggregators,
                         postAggregations: postAggregators,
-                        intervals: intervals
+                        intervals: intervals,
+                        "limit": 10000
                     };
                     if (filters && filters.length > 0) {
                         query.filter = this.buildFilterTree(filters);
@@ -194,6 +197,7 @@ System.register(["lodash", "moment", "app/core/utils/datemath"], function (expor
                         postAggregations: postAggregators,
                         intervals: intervals,
                         limitSpec: limitSpec,
+                        "limit": 10000
                     };
                     if (filters && filters.length > 0) {
                         query.filter = this.buildFilterTree(filters);
